@@ -19,4 +19,17 @@ class TimeManager
       end
     end
   end
+
+  def free_time
+    optimize_interval
+    return [] if intervals.size == 1
+
+    i = 0
+    answer = []
+    while i != intervals.size - 1
+      answer << [intervals[i].last, intervals[i + 1].first]
+      i += 1
+    end
+    answer
+  end
 end
