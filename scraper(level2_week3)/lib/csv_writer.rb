@@ -14,9 +14,9 @@ class CSVWriter
 
   def write_hash(hash)
     CSV.open(file_path, 'ab+') do |csv|
-      hash.each do |_key, value|
+      hash.values.each do |value|
         tmp_arr = []
-        value.each do |_k, v|
+        value.values.each do |v|
           tmp_arr << v
         end
         csv << tmp_arr
